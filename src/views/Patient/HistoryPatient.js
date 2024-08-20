@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HeaderDataUser from "../../component/Header/HeaderDataUser";
 import SidebarPatient from "../../component/Sidebar/SidebarPatient";
 import Paginations from "../../component/Pagination/Paginations";
+import WithAuthorization from "../../utils/auth";
 
 // Data dummy untuk pasien
 const dummyData = [
@@ -39,6 +40,8 @@ const dummyPagination = {
 };
 
 const HistoryPatient = () => {
+  const auth = WithAuthorization(["patient"]);
+
   const [data, setData] = useState([]);
   const [pagination, setPagination] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,27 +66,29 @@ const HistoryPatient = () => {
     setCurrentPage(pageNumber);
   };
 
-  return (
-    <div className="g-sidenav-show bg-gray-100">
-      <div className="min-height-300 bg-primary position-absolute w-100"></div>
-      <aside
-        className="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-0 my-0 fixed-start ms-0"
-        id="sidenav-main"
-      >
-        <SidebarPatient />
-      </aside>
-      <main className="main-content position-relative border-radius-lg">
-        <HeaderDataUser />
-        <div className="container-fluid py-2">
-          <div className="row p-0">
-            <div className="col-12">
-              <div className="card mb-4">
-                <div>
-                  <div className="card-body px-0 pb-2 mt-2">
-                    <div className="row justify-content-center">
-                      <div className="col-md-6">
-                        <div className="card shadow-none border-0">
-                          {/* isi disini */}
+  if (auth) {
+    return (
+      <div className="g-sidenav-show bg-gray-100">
+        <div className="min-height-300 bg-primary position-absolute w-100"></div>
+        <aside
+          className="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-0 my-0 fixed-start ms-0"
+          id="sidenav-main"
+        >
+          <SidebarPatient />
+        </aside>
+        <main className="main-content position-relative border-radius-lg">
+          <HeaderDataUser />
+          <div className="container-fluid py-2">
+            <div className="row p-0">
+              <div className="col-12">
+                <div className="card mb-4">
+                  <div>
+                    <div className="card-body px-0 pb-2 mt-2">
+                      <div className="row justify-content-center">
+                        <div className="col-md-6">
+                          <div className="card shadow-none border-0">
+                            {/* isi disini */}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -92,10 +97,10 @@ const HistoryPatient = () => {
               </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
-  );
+        </main>
+      </div>
+    );
+  }
 };
 
 export default HistoryPatient;

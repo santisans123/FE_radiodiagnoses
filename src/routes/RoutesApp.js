@@ -32,6 +32,7 @@ import ProfilePatient from "../views/Patient/ProfilePatient";
 import ResultDataDiagnosis from "../views/Patient/ResultDataDiagnosis";
 import HistoryPatient from "../views/Patient/HistoryPatient";
 import DashboardPatient from "../views/Patient/DashboardPatient";
+import DetailResultDataDiagnosis from "../views/Patient/DetailResultDataDiagnosis";
 import LoginPatient from "../auth/LoginPatient";
 import RegisterPatient from "../auth/RegistrationCardPatient";
 
@@ -42,6 +43,7 @@ const RoutesApp = () => {
         <Routes>
           <Route path="/patient-profile" element={<ProfilePatient />} />
           <Route path="/patient-result-diagnosis" element={<ResultDataDiagnosis />} />
+          <Route path="/patient-detail-result/:id" element={<DetailResultDataDiagnosis />} />
           <Route path="/patient-history" element={<HistoryPatient />} />
           <Route path="/patient-dashboard" element={<DashboardPatient />} />
           <Route path="/" element={<LoginUser />} />
