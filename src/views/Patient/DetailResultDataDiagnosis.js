@@ -1,10 +1,10 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
 import HeaderDataUser from "../../component/Header/HeaderDataUser";
+import SidebarPatient from "../../component/Sidebar/SidebarPatient";
 import InterpretasiManual from "../../component/Modal/InterpretasiManual";
 import VerifiedNo from "../../component/Modal/VerifiedNo";
 import VerifiedYes from "../../component/Modal/VerifiedYes";
-import SidebarDokter from "../../component/Sidebar/SidebarDokter";
 import { baseURL } from "../../routes/Config";
 import { useParams } from "react-router-dom";
 import WithAuthorization from "../../utils/auth";
@@ -94,7 +94,7 @@ const DetailResultDataDiagnosis = () => {
             className="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-0 my-0 fixed-start ms-0"
             id="sidenav-main"
           >
-            <SidebarDokter />
+             <SidebarPatient />
           </aside>
           <main className="main-content position-relative border-radius-lg">
             <HeaderDataUser />
