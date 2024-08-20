@@ -124,7 +124,7 @@ const DetailResultDataDiagnosis = () => {
                           <div className="card-header pb-0 ps-0">
                             <div className="d-flex align-items-center">
                               <h6 className="mb-0 font-weight-bolder">
-                                Verifikasi Gambar Radiografi Panoramik
+                                Hasil Gambar Radiografi Panoramik
                               </h6>
                             </div>
                             <div className="row mt-3">
